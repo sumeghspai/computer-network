@@ -5,7 +5,7 @@
 #include <arpa/inet.h>
 
 #define BUFFER_SIZE 1024
-#define SERVER_PORT 25
+#define SERVER_PORT 2000
 
 int main() {
     int serverSocket, clientSocket;

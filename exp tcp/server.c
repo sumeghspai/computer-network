@@ -30,6 +30,7 @@ int main()
 	if (k == -1)
 		printf("Error in listening");
 	len = sizeof(client);
+	printf("%d",len);
 	temp_sock_desc = accept(sock_desc, (struct sockaddr *)&client, &len);
 	
 	if (temp_sock_desc == -1)

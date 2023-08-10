@@ -5,7 +5,7 @@
 #include <arpa/inet.h>
 
 #define BUFFER_SIZE 1024
-#define SERVER_PORT 25
+#define SERVER_PORT 2000
 #define SERVER_IP "127.0.0.1"
 
 int main() {
@@ -38,11 +38,11 @@ int main() {
 
     // Receive server response
     memset(buffer, 0, sizeof(buffer));
-    // if (recv(clientSocket, buffer, sizeof(buffer), 0) < 0) {
-    //     perror("Failed to receive server response");
-    //     exit(1);
-    // }
-    // printf("Server: %s", buffer);
+    if (recv(clientSocket, buffer, sizeof(buffer), 0) < 0) {
+        perror("Failed to receive server response");
+        exit(1);
+    }
+    printf("Server: %s", buffer);
 
     // Send client command
     sprintf(buffer, "EHLO client.example.com\r\n");
