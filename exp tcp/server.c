@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+
 int main()
 {
 	char buf[100];
@@ -20,7 +21,7 @@ int main()
 	client.sin_family = AF_INET;
 	client.sin_addr.s_addr = INADDR_ANY;
 	client.sin_port = 3003;
-	
+	printf("%d",len);
 	k = bind(sock_desc, (struct sockaddr *)&server, sizeof(server));
 	if (k == -1)
 		printf("Error in binding");
@@ -39,7 +40,7 @@ int main()
 		printf("Error in receiving");
 	
 	printf("Message got from client: %s", buf);
-
+	k=send(temp_sock_desc,buf,100,0);
 	close(temp_sock_desc);
 return 0;
 }
